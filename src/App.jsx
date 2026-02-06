@@ -6,6 +6,8 @@ import {
   Route,
   useNavigate,
 } from "react-router-dom";
+import Post from "./Post";
+import PostId from "./PostId";
 
 const LogOut = () => {
   const navigate = useNavigate();
@@ -61,6 +63,9 @@ function App() {
           <NavLink to="/todo">
             <p>Todo 頁面</p>
           </NavLink>
+          <NavLink to="/post">
+            <p>Post 頁面</p>
+          </NavLink>
         </div>
         {/* Routes, Route 練習區 */}
         <Routes>
@@ -68,6 +73,9 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/todo" element={<Todo />}></Route>
+          <Route path="/post" element={<Post />}>
+            <Route path=":postId" element={<PostId />}></Route>
+          </Route>
         </Routes>
         {/* 練習區 */}
       </HashRouter>
